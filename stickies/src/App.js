@@ -7,7 +7,8 @@ class App extends Component {
     super();
     this.state = {
       currentItem: '',
-      username: ''
+      username: '',
+      items: []
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
