@@ -31,8 +31,17 @@ class App extends Component {
             </form>
           </section>
           <section className='display-item'>
-            <div className='wrapper'>
+            <div className="wrapper">
               <ul>
+                {this.state.items.map((item) => {
+                  return (
+                    <li key={item.id}>
+                      <h3>{item.title}</h3>
+                      <p>brought by: {item.user}</p>
+                      <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           </section>
@@ -60,5 +69,33 @@ class App extends Component {
       username: ''
     });
   }
+  
+  componentDidMount() {
+    const itemsRef = firebase.database().ref('items');
+    itemsRef.on('value', (snapshot) => {
+      let items = snapshot.val();
+      let newState = [];
+      for (let item in items) {
+        newState.push({
+          id: item,
+          title: items[item].title,
+          user: items[item].user
+        });
+      }
+      this.setState({
+        items: newState
+      });
+    });
+  }
+  
+  removeItem(itemId) {
+    const itemRef = firebase.database().ref(`/items/${itemId}`);
+    itemRef.remove();
+  }
+  
+  
 }
+
+
+
 export default App;
