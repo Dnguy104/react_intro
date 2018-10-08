@@ -5,8 +5,8 @@ body {
 
 header {
   color: #fff;
-  background-color: #103D5D;
-  padding: 33px 0 25px 15px;
+  background-color: #3b5998;
+  padding: 50px 0 25px 15px;
 }
 
 header p {
@@ -23,11 +23,13 @@ header h1 {
   font-weight: 600;
   letter-spacing: 0.3px;
   display: inline-block;
-  margin: 0;
+  margin: auto 0;
   vertical-align: middle;
   
 }
-
+section p {
+  text-align: left;
+}
 .fa {
   font-size: 22px;
   transform: translateY(50deg);  
@@ -113,7 +115,7 @@ h2 {
 }
 
 li h3 {
-  background-color: #103D5D;
+  background-color: #3b5998;
   margin: 0;
   color: #fff;
   font-weight: 300;
@@ -132,7 +134,7 @@ form button {
 button {
   border-radius: 2px;
   min-width: 88px;
-  background-color: #FA6900;
+  background-color: #6d84b4;
   cursor: pointer;
   border: 0;
   min-width: 120px;
