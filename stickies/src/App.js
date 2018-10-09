@@ -102,12 +102,10 @@ class App extends Component {
                       {this.state.user ?
                         <button>Add Item</button>
                         :
-                        null
+                        <p>You must be Logged in to add your item!</p>
                       }
                     </form>
               </section>
-              
-              {this.state.user ?
               
                 <section className='display-item'>
                     <div className="wrapper">
@@ -117,7 +115,7 @@ class App extends Component {
                             <li key={item.id}>
                               <h3>{item.title}</h3>
                               <p>brought by: {item.user}
-                                {item.user === this.state.user.displayName || item.user === this.state.user.email ?
+                                {this.state.user && (item.user === this.state.user.displayName || item.user === this.state.user.email) ?
                                   <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                               </p>
                             </li>
@@ -127,9 +125,6 @@ class App extends Component {
                     </div>
                 </section>
                 
-                : 
-                  <p>You must be logged in to see the potluck list and submit to it.</p>
-              }
             </div>
           </div>
         

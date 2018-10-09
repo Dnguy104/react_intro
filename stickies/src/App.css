@@ -28,7 +28,7 @@ header h1 {
   
 }
 section p {
-  text-align: left;
+  padding-top: 20px;
 }
 .fa {
   font-size: 22px;
